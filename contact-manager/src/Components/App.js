@@ -7,6 +7,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { v4 } from "uuid";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ContactDetails from "./ContactDetails";
+
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -38,6 +40,7 @@ function App() {
         <Routes> 
           <Route exact path="/" Component={()=><ContactList contacts={contacts} getcontactid={RemoveContactHandler}/>}/> 
           <Route exact path="/add" Component={()=><AddContact addcontacthandler={addcontacthandler}/>}/>
+          <Route path="/contact/:id" Component={ContactDetails}/>
         </Routes>
       </Router>
     </div>
